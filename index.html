@@ -9,11 +9,14 @@
 </head>
 
 <body>
-   <header>
+   <header x-data="{ menuOpen: false }">
     <nav class="container">
         <h1 class="logo">Lucy Bernard</h1>
-        <button @click="menuOpen = !menuOpen" class="burger">☰</button>
-        <ul :class="{ 'open: menuOpen'}" class="nav-links">
+        <button @click="menuOpen = !menuOpen" class="burger" aria-label="Menu">
+            <span x-show="!menuOpen">☰</span>
+            <span x-show="menuOpen">✕</span>
+        </button>
+        <ul :class="{ 'open': menuOpen}" class="nav-links">
             <li><a href="#about">À propos</a></li>
             <li><a href="#skills">Compétences</a></li>
             <li><a href="#projects">Projets</a></li>
@@ -24,7 +27,7 @@
 
     <section class="hero">
         <div class="container">
-            <h2>Salut, je suis <span>Lucy Bernard</span></h2>
+            <h2>Salut, je suis <span>Lucy</span></h2>
             <p>Développeuse Web Junior</p>
             <a href="#projects" class="btn">Voir mes projets</a>
         </div>
@@ -32,33 +35,83 @@
 
 <section id="about" class="about container">
     <h2>À propos</h2>
-    <p>Texte de présentation</p>
+    <p>Travaillant depuis plusieurs années en tant qu'illustratrice sur des projets de bande-dessinées et de commissions client, j'ai décidé d'étendre mes compétences vers l'intégration web. J'ai suivi en 2025 une formation OpenClassrooms et ai acquis de nouvelles compétences que j'ai hâte de mettre davantage en pratique à votre service.</p>
 </section>
 
 <section id="skills" class="skills container">
     <h2>Compétences</h2>
-    <ul>
-        <li>HTML5 / CSS3</li>
-        <li>Javascript</li>
-        <li>React</li>
-        <li>Git & Github</li>
-    </ul>
+    <div class="skill">
+        <p>HTML / CSS <span>80%</span></p>
+        <div class="skill-bar">
+            <div class="skill-fill" style="width: 80%;"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <p>Javascript <span>70%</span></p>
+        <div class="skill-bar">
+            <div class="skill-fill" style="width: 70%;"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <p>React <span>70%</span></p>
+        <div class="skill-bar">
+            <div class="skill-fill" style="width: 70%;"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <p>Git & GitHub <span>75%</span></p>
+        <div class="skill-bar">
+            <div class="skill-fill" style="width: 75%;"></div>
+        </div>
+    </div>
 </section>
 
 <section id="projects" class="projects container">
     <h2>Mes projets</h2>
     <div class="project-grid">
-        <article class="project-card">
+
+        <article x-data=" {modal: false} " class="project-card">
+            <div @click="modal = true" class="project-preview">
             <img src="/assets/images/Ohmyfood.webp" alt="Ohmyfood">
-            <h3>Ohmyfood</h3>
-            <p>Description du projet</p>
+                <h3>Ohmyfood</h3>
+                <p>Description</p>
+            </div>
             <a href="https://github.com/LucynBernard/Ohmyfood" target="_blank">Voir sur Github</a>
+
+            <template x-teleport="body">
+                <div class="modal-overlay" x-show="modal" x-transition.opacity @click="modal = false">
+                    <div class="modal-content" @click.stop x-show="modal" x-transition>
+                        <button class="modal-close" @click="modal = false">✕</button>
+                        <img src="/assets/images/Ohmyfood.webp" alt="Ohmyfood">
+                        <h4>Ohmyfood</h4>
+            <p>Description du projet</p>
+            <div class="badges">
+                <span>HTML</span>
+                <span>CSS</span>
+            </div>
+            <a href="https://github.com/LucynBernard/Ohmyfood" target="_blank">Voir sur Github</a>
+                    </div>
+                </div>
+            </template>
         </article>
-        <article class="project-card">
-            <img src="/assets/images/Kasa.webp" alt="Kasa">
+
+        <article x-data=" {modal: false} " class="project-card">
+            <div @click="modal = true" class="project-preview">
+<img src="/assets/images/Kasa.webp" alt="Kasa">
             <h3>Kasa</h3>
             <p>Description du projet</p>
+            </div>
             <a href="https://github.com/LucynBernard/Kasa_FR" target="_blank">Voir sur Github</a>
+            <template x-teleport="body">
+                <div class="modal-overlay" x-show="modal" x-transition.opacity @click="modal = false">
+                    <div class="modal-content" @click.stop x-show="modal" x-transition>
+                        <button class="modal-close" @click="modal = false">✕</button>
+                        <img src="/assets/images/Kasa.webp" alt="Kasa">
+                        <h4>Kasa</h4>
+                        <p>Description</p>
+                    </div>
+                </div>
+            </template>
         </article>
         <article class="project-card">
             <img src="/assets/images/SophieBluel.webp" alt="Architecte Sophie Bluel">

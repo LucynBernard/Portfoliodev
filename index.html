@@ -19,6 +19,7 @@
         <ul :class="{ 'open': menuOpen}" class="nav-links">
             <li><a href="#about">À propos</a></li>
             <li><a href="#skills">Compétences</a></li>
+            <li><a href="#approach-ambitions">Approche</a></li>
             <li><a href="#projects">Projets</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -66,6 +67,32 @@
     </div>
 </section>
 
+<section id="approach-ambitions" class="container">
+    <h2>Mon approche & mes ambitions</h2>
+    <div class="approach-grid">
+        <div class="approach-card">
+            <div class="icon">🛠️</div>
+            <h3>Mon approche</h3>
+            <p>
+                Je m'inspire des méthodes <strong>Agile</strong>, qui favorisent l'itération et la collaboration. J'apprécie travailler seule et en <strong>autonomie</strong>, mais je m'adapte également au travail en binôme pour partager les points de vue et les expériences.
+            </p>
+            <p>
+                Mes valeurs ajoutées sont ma <strong>curiosité</strong>, qui m'incite à apprendre toujours davantage, et ma <strong>rigueur</strong> à livrer un code lisible et facile à maintenir.
+            </p>
+        </div>
+        <div class="approach-card">
+            <div class="icon">🚀</div>
+            <h3>Mes ambitions</h3>
+            <p>
+                Mon objectif est de travailler sur des applications web performantes, qui me permettront d'évoluer et de progresser sur <strong>Javascript</strong> et <strong>React</strong>.
+            </p>
+            <p>
+                À long terme, je vise un rôle de <strong>développeur front-end</strong> avec une expertise en design.
+            </p>
+        </div>
+    </div>
+</section>
+
 <section id="projects" class="projects container">
     <h2>Mes projets</h2>
     <div class="project-grid">
@@ -74,7 +101,7 @@
             <div @click="modal = true" class="project-preview">
             <img src="/assets/images/Ohmyfood.webp" alt="Ohmyfood">
                 <h3>Ohmyfood</h3>
-                <p>Description</p>
+                <p>Site "mobile-first" de réservations de menus</p>
             </div>
             <a href="https://github.com/LucynBernard/Ohmyfood" target="_blank">Voir sur Github</a>
 
@@ -84,10 +111,10 @@
                         <button class="modal-close" @click="modal = false">✕</button>
                         <img src="/assets/images/Ohmyfood.webp" alt="Ohmyfood">
                         <h4>Ohmyfood</h4>
-            <p>Description du projet</p>
+            <p>"Ohmyfood est un site qui répertorie les menus de restaurants gastronomiques, et permet aux utilisateurs de composer et réserver leur menu. J'ai pu travaillé sur plusieurs animations CSS complexes lors de ce projet."</p>
             <div class="badges">
                 <span>HTML</span>
-                <span>CSS</span>
+                <span>CSS/Sass</span>
             </div>
             <a href="https://github.com/LucynBernard/Ohmyfood" target="_blank">Voir sur Github</a>
                     </div>
@@ -99,7 +126,7 @@
             <div @click="modal = true" class="project-preview">
 <img src="/assets/images/Kasa.webp" alt="Kasa">
             <h3>Kasa</h3>
-            <p>Description du projet</p>
+            <p>Plateforme de réservations de logements entre particuliers</p>
             </div>
             <a href="https://github.com/LucynBernard/Kasa_FR" target="_blank">Voir sur Github</a>
             <template x-teleport="body">
@@ -108,22 +135,66 @@
                         <button class="modal-close" @click="modal = false">✕</button>
                         <img src="/assets/images/Kasa.webp" alt="Kasa">
                         <h4>Kasa</h4>
-                        <p>Description</p>
+                        <p>Kasa est une application de location d'appartements entre particuliers. J'ai travaillé avec Vite pour réaliser ce projet React complet et organisé.</p>
+                        <div class="badges">
+                <span>HTML/CSS</span>
+                <span>Javascript</span>
+                <span>React</span>
+            </div>
+            <a href="https://github.com/LucynBernard/Kasa_FR" target="_blank">Voir sur Github</a>
                     </div>
                 </div>
             </template>
         </article>
-        <article class="project-card">
+
+        <article x-data=" {modal: false} " class="project-card">
+            <div @click="modal = true" class="project-preview">
             <img src="/assets/images/SophieBluel.webp" alt="Architecte Sophie Bluel">
             <h3>Architecte Sophie Bluel</h3>
-            <p>Description du projet</p>
+            <p>Portfolio d'une architecte</p>
+            </div>
             <a href="https://github.com/LucynBernard/Portfolio-architecte" target="_blank">Voir sur Github</a>
+            <template x-teleport="body">
+                <div class="modal-overlay" x-show="modal" x-transition.opacity @click="modal = false">
+                    <div class="modal-content" @click.stop x-show="modal" x-transition>
+                        <button class="modal-close" @click="modal = false">✕</button>
+            <img src="/assets/images/SophieBluel.webp" alt="Architecte Sophie Bluel">
+                        <h4>Architecte Sophie Bluel</h4>
+            <p>Ce projet est le portfolio de l'architecte Sophie Bluel, elle avait besoin d'une interface dynamique afin de pouvoir s'identifier, ainsi qu'ajouter ou supprimer ses projets d'architecture à sa guise.</p>
+<div class="badges">
+                <span>HTML/CSS</span>
+                <span>Javascript</span>
+            </div>
+            <a href="https://github.com/LucynBernard/Portfolio-architecte" target="_blank">Voir sur Github</a>
+</div>
+                </div>
+            </template>
         </article>
-        <article class="project-card">
+
+        <article x-data=" {modal: false} " class="project-card">
+            <div @click="modal = true" class="project-preview">
             <img src="/assets/images/ArgentBank.webp" alt="ArgentBank">
             <h3>ArgentBank</h3>
-            <p>Description du projet</p>
+            <p>Application bancaire</p>
+        </div>
             <a href="https://github.com/LucynBernard/ArgentBank" target="_blank">Voir sur Github</a>
+        <template x-teleport="body">
+            <div class="modal-overlay" x-show="modal" x-transition.opacity @click="modal = false">
+                    <div class="modal-content" @click.stop x-show="modal" x-transition>
+                        <button class="modal-close" @click="modal = false">✕</button>
+                        <img src="/assets/images/ArgentBank.webp" alt="ArgentBank">
+                        <h4>ArgentBank</h4>
+            <p>ArgentBank est une nouvelle banque en ligne. J'ai réalisé pour ce projet une application avec React, avec une authentification sécurisée et la possibilité de modifier des informations utilisateur.</p>
+<div class="badges">
+                <span>HTML/CSS</span>
+                <span>Javascript</span>
+                <span>React</span>
+            </div>
+                        <a href="https://github.com/LucynBernard/ArgentBank" target="_blank">Voir sur Github</a>
+
+</div>
+                </div>
+        </template>
         </article>
     </div>
 </section>

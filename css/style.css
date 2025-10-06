@@ -321,13 +321,18 @@ nav {
     margin-right: 0.5rem;
 }
 
-.contact {
+#contact {
     background: #f1f5f9;
-    padding: 4rem 1rem;
-    text-align: center;
+    padding: 4rem 0;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
-.contact a {
+#contact a {
     font-weight: 600;
 }
 
